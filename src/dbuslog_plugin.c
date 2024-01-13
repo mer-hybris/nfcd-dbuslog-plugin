@@ -45,6 +45,7 @@
 #include <dbuslog_util.h>
 
 #include <gutil_log.h>
+#include <ndef_types.h>
 
 GLOG_MODULE_DEFINE("dbus-log");
 
@@ -247,12 +248,16 @@ dbus_log_plugin_start(
 
     GVERBOSE("Starting");
     dbus_log_plugin_add_category(self, NULL, &gutil_log_default);
+    dbus_log_plugin_add_category(self, NULL, &NDEF_LOG_MODULE);
     dbus_log_plugin_add_category(self, NULL, &NFC_CORE_LOG_MODULE);
 #if NFC_CORE_VERSION >= NFC_VERSION_WORD(1,1,0)
     dbus_log_plugin_add_category(self, NULL, &NFC_LLC_LOG_MODULE);
     dbus_log_plugin_add_category(self, NULL, &NFC_PEER_LOG_MODULE);
     dbus_log_plugin_add_category(self, NULL, &NFC_SNEP_LOG_MODULE);
 #endif /* NFC_CORE_VERSION >= 1.1.0 */
+#if NFC_CORE_VERSION >= NFC_VERSION_WORD(1,2,0)
+    dbus_log_plugin_add_category(self, NULL, &NFC_HOST_LOG_MODULE);
+#endif /* NFC_CORE_VERSION >= 1.2.0 */
     for (i = 0; plugins[i]; i++) {
         NfcPlugin* plugin = plugins[i];
         const NfcPluginDesc* desc = plugin->desc;

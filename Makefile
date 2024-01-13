@@ -6,7 +6,7 @@
 # Required packages
 #
 
-LDPKGS = libdbuslogserver-gio libglibutil gobject-2.0 gio-2.0 glib-2.0
+LDPKGS = libdbuslogserver-gio libglibutil libnfcdef gobject-2.0 gio-2.0 glib-2.0
 PKGS = $(LDPKGS) nfcd-plugin
 
 #

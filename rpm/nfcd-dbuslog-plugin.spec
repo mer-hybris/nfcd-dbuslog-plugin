@@ -15,6 +15,7 @@ BuildRequires: pkgconfig(libdbuslogserver-gio) >= %{libdbuslog_version}
 BuildRequires: pkgconfig(libglibutil) >= %{libglibutil_version}
 BuildRequires: pkgconfig(glib-2.0) >= %{glib_version}
 BuildRequires: pkgconfig(nfcd-plugin)
+BuildRequires: pkgconfig(libnfcdef)
 
 Requires: libdbuslogserver-gio >= %{libdbuslog_version}
 Requires: libglibutil >= %{libglibutil_version}
